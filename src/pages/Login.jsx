@@ -12,7 +12,7 @@ const Login = () => {
   const LogInWithGoogle  = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      navigate("/home"); // only if sign-in was successful
+      navigate("/home"); 
     } catch (error) {
       console.error("Login failed", error.message);
     }
@@ -32,16 +32,19 @@ const Login = () => {
   return (
     <div>
       <h1>LOGIN</h1>
-
+<form  onSubmit={(e) => { e.preventDefault();  } } >
+  
       <label>Email</label>
       <input type="email" 
       value={email}
+      autoComplete="email"
         onChange={(e) => setEmail(e.target.value)}
       required placeholder="Enter your email" />
 
       <label>Password</label>
       <input type="password" 
        value={password}
+       autoComplete="current-password"
         onChange={(e) => setPassword(e.target.value)}
         required placeholder="Enter your Password" />
 
@@ -56,6 +59,7 @@ const Login = () => {
   
    </p>
 
+</form>
 
 </div>
   );
