@@ -5,9 +5,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import './App.css'
 import TrackShipment from './pages/TrackShipment';
 import {BrowserRouter as Router ,Routes ,Route , Navigate } from "react-router-dom";
-
-
-
+import NewShipment from './pages/NewShipment';
+import AdminRoute from './components/AdminRoute';
+import AdminDashboard from './pages/AdminDashboard';
 
 
 
@@ -38,6 +38,22 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+
+                <Route
+          path="/createshipment"
+          element={
+            <ProtectedRoute>
+              <NewShipment/>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path="/admin" element={
+  <AdminRoute>
+    <AdminDashboard />
+  </AdminRoute>
+} />
       </Routes>
     </Router>
   )

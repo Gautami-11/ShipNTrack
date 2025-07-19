@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signInWithPopup ,signInWithEmailAndPassword } from "firebase/auth";
-
+import SignUpNav from "../components/SignUpNav";
 import { auth, googleProvider } from "../config/firebase";
 
 const Login = () => {
@@ -31,6 +31,7 @@ const Login = () => {
 
   return (
     <div>
+      <SignUpNav/>
       <h1>LOGIN</h1>
 <form  onSubmit={(e) => { e.preventDefault();  } } >
   
