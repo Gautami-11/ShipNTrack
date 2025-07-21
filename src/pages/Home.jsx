@@ -8,10 +8,10 @@ const Home = () => {
    const user = auth.currentUser;
    
   return (
-    <div className='bg-amber-200'>
+    <div >
          <Navbar user={user} signOut={() => signOut(auth)} />
-      <h1>HOME PAGE</h1>
-    </div>
+      <h1 className='pt-24'>HOME PAGE</h1>
+      <h1 className='pt-24'>HOME PAGE</h1>   </div>
   )
 }
 

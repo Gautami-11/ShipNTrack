@@ -54,7 +54,7 @@ const NewShipment = () => {
   };
 
   return (
-    <div>
+    <div className="pt-24">
      <Navbar/>
       <h1>Create New Shipment</h1>
       <form onSubmit={handleSubmit}>

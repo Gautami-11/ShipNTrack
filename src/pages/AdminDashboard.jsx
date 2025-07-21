@@ -62,7 +62,7 @@ const AdminDashboard = () => {
   if (error) return <div className="text-red-500"> {error}</div>;
 
   return (
-    <div >
+    <div className="pt-24">
         <Navbar/>
       <h2 className="text-2xl font-bold mb-4">Admin Dashboard</h2>
       {shipments.length === 0 ? (

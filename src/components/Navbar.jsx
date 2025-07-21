@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from "../assets/logo.png"
 import { Link, useNavigate } from 'react-router-dom';
 import { auth ,db } from '../config/firebase';
 import { signOut } from 'firebase/auth';
@@ -39,8 +40,15 @@ useEffect(() => {
 
 
   return (
-    <nav className='bg-amber-300' style={{ display: "flex", gap: "10px", padding: "10px", }}>
-      <Link to="/home">Home</Link>
+     <div class="fixed top-0 w-full z-50 mb-6">
+  <nav class="flex items-center gap-6 font-semibold px-6 py-3 m-4 border border-neutral-300 rounded-3xl bg-white/40 backdrop-blur-md shadow-md">
+    
+   <img
+         src={logo}
+         className="h-9 ml-5 w-auto scale-130"
+         alt="Logo"
+       />
+        <Link to="/home">Home</Link>
        <Link to="/createshipment">CreateShipment </Link>
        <Link to="/trackshipment">TrackShipment</Link>
         {isAdmin && <Link to="/admin">Admin Dashboard</Link>}
@@ -48,6 +56,8 @@ useEffect(() => {
       {auth.currentUser ? (<button onClick={handleLogout}>Logout </button>) : ( <Link to="/login" >Login</Link>)
       }
     </nav>
+    </div>
+
 
 
   );

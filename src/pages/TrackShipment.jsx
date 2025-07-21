@@ -21,7 +21,7 @@ const TrackShipment = () => {
 }, []);
 
   return (
-    <div >
+     <div className="pt-24">
       <Navbar/>
 
       <h2>My Shipments</h2>
