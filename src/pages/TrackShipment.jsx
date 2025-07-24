@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { db, auth } from "../config/firebase";
 import { collection, query, where, onSnapshot ,deleteDoc ,doc } from "firebase/firestore";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 
 const TrackShipment = () => {

@@ -64,55 +64,7 @@ const NewShipment = () => {
      
       <div className="m-9">
       <h1 className="text-center font-semibold m-4 text-4xl   ">Create New Shipment</h1>
-      {/* <form className="bg-white p-5 m-8 rounded-3xl shadow-2xl  " onSubmit={handleSubmit}>
-        <div>
-          <label>Sender Name</label>
-          <input className="border border-blue-400" name="senderName" value={form.senderName} onChange={handleChange} required />
-        </div>
 
-        <div>
-          <label>Sender Contact</label>
-          <input name="senderContact" value={form.senderContact} onChange={handleChange} required />
-        </div>
-
-        <div>
-          <label>Receiver Name</label>
-          <input name="receiverName" value={form.receiverName} onChange={handleChange} required />
-        </div>
-
-        <div>
-          <label>Receiver Contact</label>
-          <input name="receiverContact" value={form.receiverContact} onChange={handleChange} required />
-        </div>
-
-        <div>
-          <label>Package Size</label>
-          <select name="packageSize" value={form.packageSize} onChange={handleChange}>
-            <option>Small</option>
-            <option>Medium</option>
-            <option>Large</option>
-          </select>
-        </div>
-
-        <div>
-          <label>Delivery Address</label>
-          <textarea name="deliveryAddress" value={form.deliveryAddress} onChange={handleChange} required />
-        </div>
-
-        <div>
-          <label>Pickup Date</label>
-          <input type="date" name="pickupDate" value={form.pickupDate} onChange={handleChange} />
-        </div>
-
-        <div>
-          <label>Special Instructions</label>
-          <textarea name="notes" value={form.notes} onChange={handleChange} />
-        </div>
-
-        <button type="submit" disabled={loading}>
-          {loading ? "Creating..." : "Create Shipment"}
-        </button>
-      </form> */}
 
       <form className="bg-white m-5 p-2 rounded-2xl shadow-2xl border border-gray-100 max-w-3xl mx-auto" onSubmit={handleSubmit}>
           <div className="space-y-4">
