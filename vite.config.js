@@ -7,10 +7,6 @@ import path from 'path';
 export default defineConfig({
   plugins: [ tailwindcss(),react()],
 
- server: {
-    proxy: {
-      '/api': 'http://localhost:5000', 
-  },
- }
+  base: process.env.VITE_BASE_PATH || "/ShipNTrack",
 
 })
