@@ -32,16 +32,16 @@ const Login = () => {
   return (
 
 
-<div className="pt-24 text">
-<div className="fixed w-auto z-50 top-0">
-  <SignUpNav/>
-</div>
-   
-<div
-  className="min-h-screen text bg-cover  bg-center bg-no-repeat"
+    <div  className='h-screen overflow-y-scroll custom-scrollbar-hide'>
+     <div
+  className=" bg-cover text  bg-fixed  bg-center bg-no-repeat transition duration-300"
   style={{ backgroundImage: "url('/bgimg.png')" }} 
 >
-  <div className="bg-white/70 backdrop-blur-sm min-h-screen">
+
+  <div className="fixed w-auto z-50 top-0">
+  <SignUpNav/>
+</div>
+  <div className="bg-white/70 backdrop-blur-sm min-h-screen pt-18">
     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 items-center gap-4 px-6 py-10">
       {/* Left side*/}
       <div className="text-center lg:text-left">

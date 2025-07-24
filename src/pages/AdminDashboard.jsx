@@ -13,6 +13,8 @@ import {
 const AdminDashboard = () => {
   const [shipments, setShipments] = useState([]);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+
 
   const handleEdit = async (id) => {
     const newStatus = prompt("Enter new status (e.g., Dispatched, Delivered):");
@@ -61,18 +63,43 @@ const AdminDashboard = () => {
 
   if (error) return <div className="text-red-500"> {error}</div>;
 
+
+
+const filterShipments = shipments.filter((shipment) => {
+  const sender = shipment.senderName?.toLowerCase() || "";
+  const receiver = shipment.receiverName?.toLowerCase() || "";
+  const status = shipment.status?.toLowerCase() || "";
   return (
-    <div className="pt-24">
+    sender.includes(searchTerm) ||
+    receiver.includes(searchTerm) ||
+    status.includes(searchTerm)
+  );
+});
+
+
+  return (
+    <div className="pt-28 bg-blue-50 p-10 text h-screen overflow-y-scroll custom-scrollbar-hide"  
+  >
         <Navbar/>
-      <h2 className="text-2xl font-bold mb-4">Admin Dashboard</h2>
-      {shipments.length === 0 ? (
+      <h2 className="text-3xl text-center font-bold m-4">Admin Dashboard</h2>
+   <div className="flex"><h2 className="text-teal-500 font-bold text-lg">   Filter by </h2>
+ <input
+  type="text"
+  placeholder="Search by sender, receiver, or status..."
+  className="mb-6 ml-8 w-90 p-2 border border-blue-700 rounded-xl"
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
+/></div>
+
+
+      {filterShipments.length === 0 ? (
         <p>No shipments found.</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {shipments.map((shipment) => (
+          {filterShipments.map((shipment) => (
             <div
               key={shipment.id}
-              className="border p-4 rounded shadow hover:bg-gray-100"
+              className=" p-4 rounded-2xl border border-sky-500 bg-white shadow-2xl "
             >
               <p>
                 <strong>Sender:</strong> {shipment.senderName || "N/A"}
@@ -91,8 +118,8 @@ const AdminDashboard = () => {
                 <strong>Address:</strong> {shipment.deliveryAddress || "N/A"}
               </p>
 
-              <button onClick={() => handleEdit(shipment.id)}>Edit</button>
-              <button onClick={() => handleDelete(shipment.id)}>Delete</button>
+              <button className="bg-red-500 hover:bg-red-600 p-2 rounded-lg text-black font-semibold  m-6" onClick={() => handleEdit(shipment.id)}>Edit</button>
+              <button className="bg-green-500  hover:bg-green-600 p-2 rounded-lg text-black font-semibold  m-6" onClick={() => handleDelete(shipment.id)}>Delete</button>
             </div>
           ))}
         </div>

@@ -8,7 +8,7 @@ import {BrowserRouter as Router ,Routes ,Route , Navigate } from "react-router-d
 import NewShipment from './pages/NewShipment';
 import AdminRoute from './components/AdminRoute';
 import AdminDashboard from './pages/AdminDashboard';
-
+import './index.css'
 
 
 function App() {
@@ -49,12 +49,15 @@ function App() {
           }
         />
 
+        
+
         <Route path="/admin" element={
   <AdminRoute>
     <AdminDashboard />
   </AdminRoute>
 } />
       </Routes>
+    
     </Router>
   )
 }

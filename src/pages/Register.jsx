@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
@@ -55,16 +54,18 @@ const Register = () => {
 
 
   return (
-    <div className="pt-24 text">
+     <div  className='h-screen text overflow-y-scroll custom-scrollbar-hide'>
+     <div
+  className=" bg-cover   bg-fixed  bg-center bg-no-repeat transition duration-300"
+  style={{ backgroundImage: "url('/bgimg.png')" }} 
+>
+
 <div className="fixed w-auto z-50 top-0">
   <SignUpNav/>
 </div>
 
-<div
-  className="min-h-screen text bg-cover  bg-center bg-no-repeat"
-  style={{ backgroundImage: "url('/bgimg.png')" }} 
->
-  <div className="bg-white/70 backdrop-blur-sm min-h-screen">
+
+  <div className="bg-white/70 backdrop-blur-sm min-h-screen pt-18">
     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 items-center gap-4 px-6 py-10">
       {/* Left side*/}
       <div className="text-center lg:text-left">
@@ -77,17 +78,17 @@ const Register = () => {
       </div>
 
 
-    
+
            <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md mx-auto">
-    <form   className="space-y-4 font-semibold" onSubmit={(e) => { e.preventDefault(); createUser(); }}>
+    <form   className="space-y-4 " onSubmit={(e) => { e.preventDefault(); createUser(); }}>
       <label>Email</label>
       <input
+      placeholder="Enter your email"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          
         type="email"
-        placeholder="Enter email"
-        required
-        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            
-          autoComplete="email"
+         required
+           autoComplete="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
@@ -130,7 +131,10 @@ const Register = () => {
   </div>
   </div>
   </div>
+
+
   </div>
+ 
   );
 };
 
