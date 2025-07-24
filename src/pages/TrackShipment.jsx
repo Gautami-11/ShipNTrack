@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { db, auth } from "../config/firebase";
-import { collection, query, where, onSnapshot } from "firebase/firestore";
+import { collection, query, where, onSnapshot ,deleteDoc ,doc } from "firebase/firestore";
 import Navbar from "../components/Navbar";
-
+import Footer from "../components/Footer";
 
 
 const TrackShipment = () => {
@@ -27,16 +27,26 @@ const TrackShipment = () => {
     return () => unsubscribe();
   }, []);
 
+
+   const handleDelete = async (id) => {
+      if (confirm("Are you sure you want to delete this shipment?")) {
+        try {
+          await deleteDoc(doc(db, "shipments", id));
+          setShipments((prev) => prev.filter((s) => s.id !== id)); 
+          alert("Shipment deleted");
+        } catch (error) {
+          console.error("Error deleting shipment:", error);
+        }
+      }
+    };
+
   return (
   
-    <div
-  className="pt-32  min-h-screen overflow-y-scroll custom-scrollbar-hide bg-blue-50"
-  
+   <div
+  className="pt-32 bg-sky-100 min-h-screen overflow-y-scroll custom-scrollbar-hide"
 >
-     
-    
-     
-      <Navbar/>
+  
+  <Navbar/>
         <div className="text-center text-3xl font-semibold">My Shipments</div>
      <div  > {shipments.length === 0 ? (
         <p className="text-3xl p-7 m-9 ">No shipments found.</p>
@@ -53,14 +63,22 @@ const TrackShipment = () => {
               <p><strong>To:</strong> {shipment.receiverName}</p>
               <p><strong>Pickup Date:</strong> {shipment.pickupDate}</p>
               <p><strong>Package Size:</strong> {shipment.packageSize}</p>
-           
+           <p> Created At Time  {shipment.createdAt?.toDate().toLocaleString() || "N/A"}</p>
+
+            <button className="bg-red-500 hover:bg-red-600 p-2 rounded-lg text-black font-semibold  m-6" onClick={() => handleDelete(shipment.id)}>Cancel Your Shipment</button>
+            
             </li>
           ))}
         </ul>
-      )}</div>
+      )}
+
       
-     
+      </div>
+      
+       
+   
     </div>
+  
   );
 };
 

@@ -118,6 +118,9 @@ const filterShipments = shipments.filter((shipment) => {
                 <strong>Address:</strong> {shipment.deliveryAddress || "N/A"}
               </p>
 
+                <p> <strong>Created At Time : {shipment.createdAt?.toDate().toLocaleString() || "N/A"}</strong></p>
+         
+
               <button className="bg-red-500 hover:bg-red-600 p-2 rounded-lg text-black font-semibold  m-6" onClick={() => handleEdit(shipment.id)}>Edit</button>
               <button className="bg-green-500  hover:bg-green-600 p-2 rounded-lg text-black font-semibold  m-6" onClick={() => handleDelete(shipment.id)}>Delete</button>
             </div>
